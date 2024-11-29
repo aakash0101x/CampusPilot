@@ -1,0 +1,91 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@keyframes scroll {
+  0% {
+    transform: translateX(0%);
+  }
+
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+.ticker-container {
+  overflow: hidden;
+  white-space: nowrap;
+  border-bottom: 1px solid #d1d5db;
+  border-top: 1px solid #d1d5db;
+  background-color: rgb(234, 234, 234);
+}
+.ticker-content {
+  display: inline-flex;
+  animation: scroll 15s linear infinite;
+  gap: 1rem;
+}
+.ticker-content:hover {
+  animation-play-state: paused;
+}
+
+@keyframes verticalScroll {
+  0% {
+    transform: translateY(0%);
+  }
+  100% {
+    transform: translateY(-100%);
+  }
+
+}
+
+.ticker {
+  display: flex;
+  flex-direction: column;
+  animation: verticalScroll 10s linear infinite;
+}
+.ticker-item {
+  flex-shrink: 0;
+}
+.ticker-item:hover{
+  background-color:white;
+  color:black;
+
+}
+.ticker:hover{
+  animation-play-state: paused;
+}
+
+
+.linear_grad {
+  background: linear-gradient(315deg, rgb(220, 58, 209) 3%, rgb(70, 146, 221) 38%, rgba(48, 238, 226, 1) 68%, rgb(239, 56, 56) 98%);
+  background-size: 400% 400%;
+  animation: gradientMove 10s linear infinite;
+}
+.linear_grad_text_clip {
+  -webkit-text-fill-color: transparent;
+  -webkit-background-clip: text;
+}
+
+.loader {
+  @apply border-gray-200;
+  @apply border-t-blue-500;
+  @apply rounded-full;
+  @apply w-20;
+  @apply h-20;
+  @apply border-8;
+  @apply animate-spin;
+}
+
+@keyframes gradientMove {
+  0% {
+    background-position: 0% 0%;
+  }
+
+  50% {
+    background-position: 100% 100%;
+  }
+
+  100% {
+    background-position: 0% 0%;
+  }
+}
