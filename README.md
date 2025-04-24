@@ -1,4 +1,4 @@
-# College Management System
+# CampusPilot - A College Management System
 
 This project is a comprehensive College Management System designed using **React**, **Tailwind CSS**, **Express.js**, and **MySQL**. It facilitates efficient management of college data and provides features for students, faculty, and administrators.
 
