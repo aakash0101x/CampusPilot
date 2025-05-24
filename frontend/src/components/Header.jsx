@@ -103,7 +103,7 @@ const Header = () => {
             </header>
 
             <header className="w-full px-4 p-1 bg-white flex items-center gap-9">
-                <img className="w-20" src="https://iiitn.ac.in/logo.png" alt="IIIT Nagpur logo" />
+                <img className="w-20" src="https://images.shiksha.com/mediadata/images/1638334904phpkNMfNU.jpeg" alt="IIIT Nagpur logo" />
                 <div className="text-xl font-bold">
                     <div>भारतीय सूचना प्रौद्योगिकी संस्थान, नागपुर</div>
                     <div>Indian Institute Of Information Technology Nagpur</div>
