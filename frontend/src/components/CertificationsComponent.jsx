@@ -16,7 +16,7 @@ function CertificationsComponent({ id }) {
 
   const fetchCertifications = async () => {
     try {
-      const response = await fetch('http://localhost:3000/certifications');
+      const response = await fetch('https://campuspilot.onrender.com/certifications');
       if (!response.ok) throw new Error('Network response was not ok');
       const data = await response.json();
       setCertifications(data);
@@ -27,7 +27,7 @@ function CertificationsComponent({ id }) {
 
   const fetchCertificate_Enrolled = async () => {
     try {
-      const response = await fetch('http://localhost:3000/certificate-enrolled');
+      const response = await fetch('https://campuspilot.onrender.com/certificate-enrolled');
       if (!response.ok) throw new Error('Network response was not ok');
       const data = await response.json();
       setCertificate_Enrolled(data);
@@ -47,7 +47,7 @@ function CertificationsComponent({ id }) {
     };
 
     try {
-      const response = await fetch('http://localhost:3000/certificate-enrolled/enroll', {
+      const response = await fetch('https://campuspilot.onrender.com/certificate-enrolled/enroll', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'

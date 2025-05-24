@@ -13,7 +13,7 @@ function AdminLoginComponent() {
         e.preventDefault();
         const loginData = { id: id, password };
         try {
-            const response = await fetch("http://localhost:3000/login/admin", {
+            const response = await fetch("https://campuspilot.onrender.com/login/admin", {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',

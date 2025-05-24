@@ -7,7 +7,7 @@ const Notices_News = () => {
   
   const fetchNews = async () => {
     try {
-      const response = await fetch('http://localhost:3000/news');
+      const response = await fetch('https://campuspilot.onrender.com/news');
       if (!response.ok) {
         throw new Error('Network response was not ok');
       }
@@ -20,7 +20,7 @@ const Notices_News = () => {
 
   const fetchNotices = async () => {
     try {
-      const response = await fetch('http://localhost:3000/notice');
+      const response = await fetch('https://campuspilot.onrender.com/notice');
       if (!response.ok) {
         throw new Error('Network response was not ok');
       }

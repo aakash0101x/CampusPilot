@@ -6,7 +6,7 @@ const FacultiesComponent = ({ action }) => {
     const [FacultyData, setFacultyData] = useState([])
     const fetchFaculties = async () => {
         try {
-            const response = await fetch('http://localhost:3000/faculty');
+            const response = await fetch('https://campuspilot.onrender.com/faculty');
             if (!response.ok) {
                 throw new Error('Network response was not ok');
             }
@@ -25,7 +25,7 @@ const FacultiesComponent = ({ action }) => {
 
     const handleDelete = async (id) => {
         try {
-            await fetch(`http://localhost:3000/faculty/delete/${id}`, { method: 'DELETE' });
+            await fetch(`https://campuspilot.onrender.com/faculty/delete/${id}`, { method: 'DELETE' });
             fetchFaculties();
         } catch (err) {
             console.error("Error deleting faculty:", err);

@@ -8,7 +8,7 @@ const LibraryComponent = () => {
 
   const fetchBook = async () => {
     try {
-      const response = await fetch('http://localhost:3000/book');
+      const response = await fetch('https://campuspilot.onrender.com/book');
       if (!response.ok) {
         throw new Error('Network response was not ok');
       }
@@ -20,7 +20,7 @@ const LibraryComponent = () => {
   };
   const fetchMembers = async () => {
     try {
-      const response = await fetch('http://localhost:3000/library-members');
+      const response = await fetch('https://campuspilot.onrender.com/library-members');
       if (!response.ok) {
         throw new Error('Network response was not ok');
       }

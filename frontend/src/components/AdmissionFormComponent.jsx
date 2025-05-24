@@ -40,7 +40,7 @@ const AdmissionFormComponent = () => {
         }
 
         try {
-            const response = await fetch('http://localhost:3000/admission-form/submit', {
+            const response = await fetch('https://campuspilot.onrender.com/admission-form/submit', {
                 method: 'POST',
                 body: data,
             });

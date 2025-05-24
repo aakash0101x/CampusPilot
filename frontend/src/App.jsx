@@ -9,7 +9,7 @@ const App = () => {
 
   const fetchSliders = async () => {
     try {
-      const response = await fetch('http://localhost:3000/slider');
+      const response = await fetch('https://campuspilot.onrender.com/slider');
       if (!response.ok) {
         throw new Error('Network response was not ok');
       }

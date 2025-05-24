@@ -7,7 +7,7 @@ const StudentsData = () => {
 
     const fetchStudents = async () => {
         try {
-            const response = await fetch('http://localhost:3000/students');
+            const response = await fetch('https://campuspilot.onrender.com/students');
             if (!response.ok) {
                 throw new Error('Network response was not ok');
             }
@@ -29,7 +29,7 @@ const StudentsData = () => {
 
     const handleDelete = async (id) => {
         try {
-            await fetch(`http://localhost:3000/student/delete/${id}`, { method: 'DELETE' });
+            await fetch(`https://campuspilot.onrender.com/student/delete/${id}`, { method: 'DELETE' });
             fetchStudents();
         } catch (err) {
             console.error("Error deleting student:", err);

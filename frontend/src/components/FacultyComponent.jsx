@@ -8,7 +8,7 @@ const FacultyComponent = () => {
 
     const fetchFaculty = async () => {
         try {
-            const response = await fetch('http://localhost:3000/faculty');
+            const response = await fetch('https://campuspilot.onrender.com/faculty');
             if (!response.ok) {
                 throw new Error('Network response was not ok');
             }

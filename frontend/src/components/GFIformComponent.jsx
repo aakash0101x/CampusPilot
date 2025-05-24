@@ -39,7 +39,7 @@ const GFIformComponent = ({ formname, pid }) => {
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            const response = await fetch(`http://localhost:3000/form/${formname}/add`, {
+            const response = await fetch(`https://campuspilot.onrender.com/form/${formname}/add`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',

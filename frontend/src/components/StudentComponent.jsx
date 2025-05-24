@@ -18,7 +18,7 @@ const StudentComponent = () => {
 
   const fetchStudent = async () => {
     try {
-      const response = await fetch('http://localhost:3000/students');
+      const response = await fetch('https://campuspilot.onrender.com/students');
       if (!response.ok) {
         throw new Error('Network response was not ok');
       }
@@ -32,7 +32,7 @@ const StudentComponent = () => {
 
   const fetchEnrolledCourse = async () => {
     try {
-      const response = await fetch(`http://localhost:3000/enrolled_course/${slug}`);
+      const response = await fetch(`https://campuspilot.onrender.com/enrolled_course/${slug}`);
       if (!response.ok) {
         throw new Error('Network response was not ok');
       }
@@ -45,7 +45,7 @@ const StudentComponent = () => {
 
   const fetchEnrolledCertification = async () => {
     try {
-      const response = await fetch("http://localhost:3000/certificate-enrolled");
+      const response = await fetch("https://campuspilot.onrender.com/certificate-enrolled");
       if (!response.ok) {
         throw new Error('Network response was not ok');
       }
@@ -59,7 +59,7 @@ const StudentComponent = () => {
 
   const fetchLibraryMember = async () => {
     try {
-      const response = await fetch("http://localhost:3000/library-members");
+      const response = await fetch("https://campuspilot.onrender.com/library-members");
       if (!response.ok) {
         throw new Error('Network response was not ok');
       }

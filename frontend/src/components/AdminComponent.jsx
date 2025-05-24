@@ -21,13 +21,13 @@ const AdminComponent = ({ admininfo }) => {
 
     switch (showForm) {
       case 'student':
-        endpoint = 'http://localhost:3000/student/add';
+        endpoint = 'https://campuspilot.onrender.com/student/add';
         break;
       case 'faculty':
-        endpoint = 'http://localhost:3000/faculty/add';
+        endpoint = 'https://campuspilot.onrender.com/faculty/add';
         break;
       case 'book':
-        endpoint = 'http://localhost:3000/book/add';
+        endpoint = 'https://campuspilot.onrender.com/book/add';
         break;
       default:
         console.error('Invalid form type');

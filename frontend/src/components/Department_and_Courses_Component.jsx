@@ -7,7 +7,7 @@ function Department_and_Courses_Component() {
 
     const fetchDepartments = async () => {
         try {
-            const response = await fetch('http://localhost:3000/departments');
+            const response = await fetch('https://campuspilot.onrender.com/departments');
             if (!response.ok) {
                 throw new Error('Network response was not ok');
             }
@@ -20,7 +20,7 @@ function Department_and_Courses_Component() {
     };
     const fetchCourses = async () => {
         try {
-            const response = await fetch('http://localhost:3000/courses');
+            const response = await fetch('https://campuspilot.onrender.com/courses');
             if (!response.ok) {
                 throw new Error('Network response was not ok');
             }

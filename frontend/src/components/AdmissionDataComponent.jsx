@@ -6,7 +6,7 @@ const AdmissionDataComponent = () => {
 
     const fetchAdmissions = async () => {
         try {
-            const response = await fetch('http://localhost:3000/admissions');
+            const response = await fetch('https://campuspilot.onrender.com/admissions');
             if (!response.ok) {
                 throw new Error('Network response was not ok');
             }
@@ -26,7 +26,7 @@ const AdmissionDataComponent = () => {
 
     const approveAdmissions = async (appId) => {
         try {
-            const response = await fetch(`http://localhost:3000/admission/approve/${appId}`, {
+            const response = await fetch(`https://campuspilot.onrender.com/admission/approve/${appId}`, {
                 method: 'PATCH',
                 headers: {
                     'Content-Type': 'application/json',

@@ -8,7 +8,7 @@ function GrievancesandFeedbackComponent({ action }) {
   const [inquiries, setinquiries] = useState([])
   const fetchGrievences = async () => {
     try {
-      const response = await fetch('http://localhost:3000/grievences');
+      const response = await fetch('https://campuspilot.onrender.com/grievences');
       if (!response.ok) {
         throw new Error('Network response was not ok');
       }
@@ -22,7 +22,7 @@ function GrievancesandFeedbackComponent({ action }) {
   };
   const fetchFeedbacks = async () => {
     try {
-      const response = await fetch('http://localhost:3000/feedback');
+      const response = await fetch('https://campuspilot.onrender.com/feedback');
       if (!response.ok) {
         throw new Error('Network response was not ok');
       }
@@ -36,7 +36,7 @@ function GrievancesandFeedbackComponent({ action }) {
   };
   const fetchInquiry = async () => {
     try {
-      const response = await fetch('http://localhost:3000/inquiry');
+      const response = await fetch('https://campuspilot.onrender.com/inquiry');
       if (!response.ok) {
         throw new Error('Network response was not ok');
       }
@@ -65,7 +65,7 @@ function GrievancesandFeedbackComponent({ action }) {
     const formattedDate = `${year}-${month}-${day}`;
 
     try {
-      const response = await fetch(`http://localhost:3000/${slug}/mark-closed/${id}`, {
+      const response = await fetch(`https://campuspilot.onrender.com/${slug}/mark-closed/${id}`, {
         method: 'PUT',
         headers: {
           'Content-Type': 'application/json',
@@ -92,7 +92,7 @@ function GrievancesandFeedbackComponent({ action }) {
     };
 
     try {
-      const response = await fetch("http://localhost:3000/contact-us/add", {
+      const response = await fetch("https://campuspilot.onrender.com/contact-us/add", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

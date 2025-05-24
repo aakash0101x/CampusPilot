@@ -14,7 +14,7 @@ const UpdateComponent = () => {
 
     const makePutRequest = async (field, value) => {
         try {
-            const response = await fetch(`http://localhost:3000/${slug1}/update/${slug2}`, {
+            const response = await fetch(`https://campuspilot.onrender.com/${slug1}/update/${slug2}`, {
                 method: 'PUT',
                 headers: {
                     'Content-Type': 'application/json',

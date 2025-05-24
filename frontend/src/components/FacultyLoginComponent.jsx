@@ -13,7 +13,7 @@ function FacultyLoginComponent() {
         e.preventDefault();
         const loginData = { F_id: id, password };
         try {
-            const response = await fetch("http://localhost:3000/login/faculty", {
+            const response = await fetch("https://campuspilot.onrender.com/login/faculty", {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',

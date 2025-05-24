@@ -10,7 +10,7 @@ const AdminPage = () => {
 
   const fetchAdmin = async () => {
     try {
-      const response = await fetch('http://localhost:3000/admin');
+      const response = await fetch('https://campuspilot.onrender.com/admin');
       if (!response.ok) {
         throw new Error('Network response was not ok');
       }
