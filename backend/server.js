@@ -1,3 +1,4 @@
+require('dotenv').config();
 const express = require('express');
 const mysql = require('mysql2');
 const bodyParser = require('body-parser');
@@ -13,10 +14,10 @@ app.use(express.urlencoded({ extended: true }));
 
 app.use(cors())
 const db = mysql.createConnection({
-  host: 'localhost',
-  user: 'root',
-  password: 'iiitn',
-  database: 'college_management',
+  host: process.env.DB_HOST,
+  user: process.env.DB_USER,
+  password: process.env.DB_PASSWORD,
+  database: process.env.DB_NAME,
   multipleStatements: true
 });
 
@@ -70,9 +71,9 @@ app.get('/departments', (req, res) => {
     });
   })
   .get('/book', (req, res) => {
-    db.query('SELECT * FROM book', (err, results) => {
+    db.query('SELECT * FROM Book', (err, results) => {
       if (err) {
-        console.error('Error fetching book:', err);
+        console.error('Error fetching Book:', err);
         res.status(500).send('Internal Server Error');
       } else {
         res.status(200).json(results);
@@ -90,7 +91,7 @@ app.get('/departments', (req, res) => {
     });
   })
   .get('/certifications', (req, res) => {
-    db.query('SELECT * FROM certification', (err, results) => {
+    db.query('SELECT * FROM Certification', (err, results) => {
       if (err) {
         console.error('Error fetching certification:', err);
         res.status(500).send('Internal Server Error');
@@ -255,7 +256,7 @@ app.patch('/admission/approve/:app_id', (req, res) => {
       return res.status(400).json({ success: false, message: 'Admin ID and password are required' });
     }
 
-    const query = 'SELECT password FROM Admin WHERE id = ?';
+    const query = 'SELECT password FROM admin WHERE id = ?';
 
     db.query(query, [id], (err, results) => {
       if (err) {
@@ -293,7 +294,7 @@ app.patch('/admission/approve/:app_id', (req, res) => {
     const { id, fname, lname, email, phone_no, dep_id, password } = req.body;
 
     const query = `
-      INSERT INTO student (s_id, fname, lname, email, phone_no, dep_id, password) 
+      INSERT INTO Student (s_id, fname, lname, email, phone_no, dep_id, password) 
       VALUES (?, ?, ?, ?, ?, ?, ?)
     `;
     const values = [id, fname, lname, email, phone_no, dep_id, password];
@@ -396,7 +397,7 @@ app.patch('/admission/approve/:app_id', (req, res) => {
       return res.status(400).json({ message: "All fields are required" });
     }
 
-    const query = "INSERT INTO contact_us (name, phone, email) VALUES (?, ?, ?)";
+    const query = "INSERT INTO Contact_us (name, phone, email) VALUES (?, ?, ?)";
     db.execute(query, [name, phone, email], (err, result) => {
       if (err) {
         console.error("Error inserting data:", err);
@@ -408,7 +409,7 @@ app.patch('/admission/approve/:app_id', (req, res) => {
   .delete('/student/delete/:id', (req, res) => {
     const s_id = req.params.id;
 
-    const sql = 'DELETE FROM fees WHERE s_id = ?;DELETE FROM members WHERE s_id = ?;DELETE FROM Grievences WHERE s_id = ?;DELETE FROM Feedback WHERE s_id = ?;DELETE FROM Inquiry WHERE s_id = ?;DELETE FROM certificate_enrolled WHERE s_id = ?;DELETE FROM enrolled_course WHERE s_id = ?; DELETE from Student where s_id = ?';
+    const sql = 'DELETE FROM Fees WHERE s_id = ?;DELETE FROM members WHERE s_id = ?;DELETE FROM Grievences WHERE s_id = ?;DELETE FROM Feedback WHERE s_id = ?;DELETE FROM Inquiry WHERE s_id = ?;DELETE FROM certificate_enrolled WHERE s_id = ?;DELETE FROM enrolled_course WHERE s_id = ?; DELETE from Student where s_id = ?';
     db.query(sql, [s_id, s_id, s_id, s_id, s_id, s_id, s_id, s_id], (err, results) => {
       if (err) {
         console.error('Error deleting student:', err);
@@ -471,5 +472,5 @@ app.patch('/admission/approve/:app_id', (req, res) => {
 
 
 app.listen(port, () => {
-  console.log(`Example app listening on port ${port}`);
+  console.log(`CampusPilot app listening on port ${port}`);
 });
