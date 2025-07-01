@@ -151,7 +151,7 @@ app.get('/departments', (req, res) => {
     });
   })
   .get('/admin', (req, res) => {
-    db.query('SELECT * FROM Admin', (err, results) => {
+    db.query('SELECT * FROM admin', (err, results) => {
       if (err) {
         console.error('Error fetching admin:', err);
         res.status(500).send('Internal Server Error');
@@ -256,7 +256,7 @@ app.patch('/admission/approve/:app_id', (req, res) => {
       return res.status(400).json({ success: false, message: 'Admin ID and password are required' });
     }
 
-    const query = 'SELECT password FROM Admin WHERE id = ?';
+    const query = 'SELECT password FROM admin WHERE id = ?';
 
     db.query(query, [id], (err, results) => {
       if (err) {
