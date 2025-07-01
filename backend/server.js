@@ -13,7 +13,7 @@ const upload = multer({ storage: multer.memoryStorage() });
 app.use(express.urlencoded({ extended: true }));
 
 app.use(cors())
-const db = mysql.createPool({
+const db = mysql.createConnection({
   host: process.env.DB_HOST,
   user: process.env.DB_USER,
   password: process.env.DB_PASSWORD,
@@ -29,7 +29,9 @@ db.connect((err) => {
     console.log('Connected to the MySQL database.');
   }
 });
-
+app.get('/', (req, res) => {
+  res.send("Backend running fine");
+})
 app.get('/departments', (req, res) => {
   db.query('SELECT * FROM Department', (err, results) => {
     if (err) {
