@@ -256,7 +256,7 @@ app.patch('/admission/approve/:app_id', (req, res) => {
       return res.status(400).json({ success: false, message: 'Admin ID and password are required' });
     }
 
-    const query = 'SELECT password FROM admin WHERE id = ?';
+    const query = 'SELECT password FROM Admin WHERE id = ?';
 
     db.query(query, [id], (err, results) => {
       if (err) {
@@ -456,7 +456,7 @@ app.patch('/admission/approve/:app_id', (req, res) => {
     let { table, id } = req.params;
     const { formattedDate } = req.body
     table = table.toLowerCase();
-    if (table != "grievences" && table != "feedback" && table != "inquiry") {
+    if (table != "Grievences" && table != "Feedback" && table != "Inquiry") {
       return res.status(400).json({ message: 'Action NOT permitted' });
     }
 
