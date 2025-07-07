@@ -3,13 +3,24 @@ const express = require('express');
 const mysql = require('mysql2');
 const bodyParser = require('body-parser');
 const multer = require('multer');
-const cors = require('cors')
+const cors = require('cors');
+const rateLimit = require('express-rate-limit');
 
 const app = express();
 app.use(express.json());
 const port = 3000;
 
 const upload = multer({ storage: multer.memoryStorage() });
+
+const limiter = rateLimit({
+    windowMs: 15 * 60 * 1000, 
+    max: 2, 
+    message: 'Too many requests from this IP, please try again after 15 minutes.',
+    standardHeaders: true, 
+    legacyHeaders: false, 
+});
+app.use(limiter);
+
 app.use(express.urlencoded({ extended: true }));
 
 app.use(cors())
